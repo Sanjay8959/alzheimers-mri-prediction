@@ -2,10 +2,18 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{hyperref}
+\usepackage{parskip} % Better paragraph spacing
+\usepackage[compact]{titlesec} % Control section spacing
+
+\titlespacing*{\section}{0pt}{1.5em}{0.8em}
+\titlespacing*{\subsection}{0pt}{1.2em}{0.6em}
 
 \title{Alzheimer's Disease Prediction Model Report}
 \author{Sanjay Singh \\ Hridyesh Kumar}
 \date{\today}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
 
 \begin{document}
 
@@ -24,8 +32,6 @@ This report details the development and training of a deep learning model for Al
 \section{Introduction}
 The objective of this project was to build a model capable of classifying MRI images based on Alzheimer's disease severity. The model aims to assist in early detection and diagnosis, potentially improving patient outcomes.
 
-\\
-\\
 \textbf{Project Repository:} The full implementation and code are available at: 
 \href{https://github.com/Sanjay8959/alzheimers-mri-prediction}{https://github.com/Sanjay8959/alzheimers-mri-prediction}
 
@@ -63,7 +69,18 @@ The models are designed to handle the complexity of MRI image data and leverage 
 The models were trained using either the Adam or SGD optimizer, with a learning rate of 0.001 by default. Cross-entropy loss was used for classification. Training was conducted over 10--20 epochs, with an optional learning rate scheduler to adjust the learning rate. The training process involved monitoring accuracy and loss metrics for both training and validation sets to ensure model convergence. Hyperparameter tuning was performed using grid search to select the best model and training configuration.
 
 \section{Results}
-The model achieved an accuracy of X\% on the test set. Detailed metrics such as precision, recall, F1-score, and ROC AUC were computed to evaluate performance. Visualization tools such as confusion matrix and ROC curve were used to interpret results. The results indicate the model's potential in accurately classifying Alzheimer's disease severity. Model weights and training history are saved for reproducibility.
+The model achieved an accuracy of X\% on the test set. 
+
+Figure~\ref{fig:training_curve} below shows the training and validation loss and accuracy curves over the epochs. The left plot displays the decrease in loss for both the training and validation sets, indicating that the model is learning effectively and not overfitting. The right plot shows the increase in accuracy for both sets, with validation accuracy closely tracking training accuracy, suggesting good generalization. These curves provide insight into the model's convergence and performance during training.
+
+Detailed metrics such as precision, recall, F1-score, and ROC AUC were also computed to evaluate performance. Visualization tools such as confusion matrix and ROC curve were used to interpret results. The results indicate the model's potential in accurately classifying Alzheimer's disease severity. Model weights and training history are saved for reproducibility.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{training_history.png}
+    \caption{Training and validation loss and accuracy curves for the Alzheimer's disease prediction model. The left plot shows the loss decreasing over epochs, while the right plot shows accuracy increasing, both for training and validation sets.}
+    \label{fig:training_curve}
+\end{figure}
 
 \section{Conclusion}
 The model demonstrates promising results in classifying Alzheimer's disease severity from MRI scans. Future work could focus on improving class balance and incorporating additional data sources. Further enhancements might include exploring different neural network architectures and optimizing hyperparameters for better performance.
