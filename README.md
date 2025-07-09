@@ -32,6 +32,7 @@ pip install -r requirements.txt
 
 ## Data Preparation
 
+- The MRI data used in this project is extracted from the Kaggle dataset: [Well-documented Alzheimer's Dataset](https://www.kaggle.com/datasets/yiweilu2033/well-documented-alzheimers-dataset)
 - Place your MRI images in the `data/` directory, organized by class (e.g., `data/NonDemented/`, `data/MildDemented/`, etc.).
 - Optionally, include an Excel file with patient metadata in the `data/` directory.
 

@@ -37,7 +37,5 @@ Combined_Dataset/
 datasetalziemer/
 
 # Model files and outputs
-models/*.pth
-output/
 *.log
 *.xlsx
