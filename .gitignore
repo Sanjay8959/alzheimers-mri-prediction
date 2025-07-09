@@ -1,0 +1,43 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Visual Studio files
+.vs/
+
+# Python cache files
+__pycache__/
+
+# Jupyter Notebook checkpoints
+*.ipynb_checkpoints/
+
+# Python specific
+*.py[cod]
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+
+# IDE/project files
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Dataset directory (do not push data)
+data/
+Alzheimer_s Dataset/
+Combined_Dataset/
+datasetalziemer/
+
+# Model files and outputs
+models/*.pth
+output/
+*.log
+*.xlsx

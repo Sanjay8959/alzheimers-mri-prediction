@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{Alzheimer's Disease Prediction Model Report}
+\author{Sanjay Singh}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+Submitted by: Sanjay Singh, 4th Semester, B.Tech. (Honors) in CSE(AI), UTD CSVTU Bhilai \\
+Submitted to: Prof. Mallikharjuna Rao, Assistant Professor(DSAI), IIIT Naya Raipur
+\end{center}
+
+\begin{abstract}
+This report details the development and training of a deep learning model for Alzheimer's disease prediction using MRI images. The project was completed as part of an internship assignment.
+\end{abstract}
+
+\section{Introduction}
+The objective of this project was to build a model capable of classifying MRI images based on Alzheimer's disease severity. The model aims to assist in early detection and diagnosis, potentially improving patient outcomes.
+
+\section{Data Analysis}
+The dataset comprises MRI brain scans categorized into four classes: NonDemented, VeryMildDemented, MildDemented, and ModerateDemented. Images are stored in a flat directory structure, and metadata is provided in an Excel file.
+
+\section{Methodology}
+The workflow for Alzheimer's disease prediction consists of the following stages:
+\begin{enumerate}
+    \item \textbf{Data Preprocessing:} MRI images are loaded from the \texttt{data/} directory. Images are resized to 224x224 pixels, normalized using ImageNet statistics, and optionally enriched with metadata from an Excel file. Data augmentation (random flips, rotations, color jitter, affine transforms) is applied to the training set to improve generalization. The dataset is split into training, validation, and test sets (80/10/10) with stratification by class.
+    \item \textbf{Model Design:} Two deep learning models are implemented:
+    \begin{itemize}
+        \item \textbf{AlzheimerCNN:} A custom convolutional neural network with four convolutional layers, batch normalization, max pooling, dropout, and two fully connected layers.
+        \item \textbf{AlzheimerResNet:} A ResNet-style model with custom residual blocks for deeper learning and improved feature extraction.
+    \end{itemize}
+    \item \textbf{Training:} Models are trained using either the Adam or SGD optimizer, with cross-entropy loss. Training is performed for a user-defined number of epochs (default 10--20), with optional learning rate scheduling. Training and validation metrics (loss, accuracy) are monitored and plotted.
+    \item \textbf{Hyperparameter Tuning:} Grid search is available for tuning model type, optimizer, learning rate, and scheduler settings.
+    \item \textbf{Evaluation and Inference:} The trained model is evaluated on the test set. Metrics such as accuracy, precision, recall, F1-score, and ROC AUC are computed. Visualization tools include confusion matrix, ROC curve, and sample predictions. Inference supports both 2D images and NIfTI files.
+\end{enumerate}
+
+\subsection{Preprocessing}
+Images were resized to 224x224 pixels and normalized using ImageNet statistics. Data augmentation techniques such as random flips, rotations, color jitter, and affine transforms were applied to enhance model robustness. The preprocessing script also integrates metadata from the Excel file to enrich the dataset with patient information. The dataset is split into training, validation, and test sets (80/10/10) with stratification to maintain class balance.
+
+\section{Model Architecture}
+Two models were implemented:
+\begin{itemize}
+    \item \textbf{AlzheimerCNN}: A custom convolutional neural network with four convolutional layers, batch normalization, max pooling, dropout regularization, and two fully connected layers.
+    \item \textbf{AlzheimerResNet}: A ResNet-style model utilizing custom residual blocks for deeper learning and improved feature extraction.
+\end{itemize}
+The models are designed to handle the complexity of MRI image data and leverage deep learning techniques for improved accuracy. Both models are implemented in PyTorch and support GPU acceleration.
+
+\section{Training Process}
+The models were trained using either the Adam or SGD optimizer, with a learning rate of 0.001 by default. Cross-entropy loss was used for classification. Training was conducted over 10--20 epochs, with an optional learning rate scheduler to adjust the learning rate. The training process involved monitoring accuracy and loss metrics for both training and validation sets to ensure model convergence. Hyperparameter tuning was performed using grid search to select the best model and training configuration.
+
+\section{Results}
+The model achieved an accuracy of X\% on the test set. Detailed metrics such as precision, recall, F1-score, and ROC AUC were computed to evaluate performance. Visualization tools such as confusion matrix and ROC curve were used to interpret results. The results indicate the model's potential in accurately classifying Alzheimer's disease severity. Model weights and training history are saved for reproducibility.
+
+\section{Conclusion}
+The model demonstrates promising results in classifying Alzheimer's disease severity from MRI scans. Future work could focus on improving class balance and incorporating additional data sources. Further enhancements might include exploring different neural network architectures and optimizing hyperparameters for better performance.
+
+\end{document}

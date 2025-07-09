@@ -1,0 +1,7 @@
+torch>=1.7
+numpy
+matplotlib
+scikit-learn
+nibabel
+Pillow
+opencv-python
